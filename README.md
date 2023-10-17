@@ -3,18 +3,18 @@
   
   ![GitHub repo](https://github.com/UsmanTheGuy/UoG-BsC-Comp1682-Computing-Project)
   <br />
-  <br />
+  
 
   <h2 align="center"> UoG-BsC-Comp1682-Computing-Project </h2>
 
- This an application developed for UoG Comp1682 Computing Project
+ This an application developed for the UoG Comp1682 Computing Project
 
 </div>
 
 <br />
 
 ### PROJECT AUTHOR FOR THIS BSC (HONS) COMPUTING PROJECT
-BANNER ID: 001330951
+BANNER ID: 001330951 <br />
 STUDENT NAME: USANA ARDYCE ZULU
 
 
