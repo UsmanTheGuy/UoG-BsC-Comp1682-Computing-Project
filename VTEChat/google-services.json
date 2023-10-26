@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "789404314313",
+    "firebase_url": "https://vte-chat-app-default-rtdb.firebaseio.com",
+    "project_id": "vte-chat-app",
+    "storage_bucket": "vte-chat-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:789404314313:android:3928ca7d85e95f8e743b18",
+        "android_client_info": {
+          "package_name": "com.usmanthaguy.vtechat"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCp1XNKHcGfYd3xiHRFwAqAgYoux6uwJh0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
