@@ -1,5 +1,5 @@
 import 'react-native-gesture-handler';
-import registerNNPushToken from 'native-notify';
+// import registerNNPushToken from 'native-notify';
 import { LogBox, StyleSheet, Text } from "react-native";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import * as SplashScreen from 'expo-splash-screen';
@@ -17,7 +17,7 @@ LogBox.ignoreLogs(['AsyncStorage has been extracted']);
 SplashScreen.preventAutoHideAsync();
 
 export default function App() {
-  registerNNPushToken(14005, 'x9bu2QbtVx2MM92pPdukUX');
+  // registerNNPushToken(14005, 'x9bu2QbtVx2MM92pPdukUX');
 
   const [appIsLoaded, setAppIsLoaded] = useState(false);
 
