@@ -27,6 +27,7 @@ const authSlice = createSlice({
         }
     }
 });
+
 export const setDidTryAutoLogin = authSlice.actions.setDidTryAutoLogin;
 export const authenticate = authSlice.actions.authenticate;
 export const updateLoggedInUserData = authSlice.actions.updateLoggedInUserData;

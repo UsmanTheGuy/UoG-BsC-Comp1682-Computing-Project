@@ -20,5 +20,6 @@ const userSlice = createSlice({
         }
     }
 });
+
 export const setStoredUsers = userSlice.actions.setStoredUsers;
 export default userSlice.reducer;

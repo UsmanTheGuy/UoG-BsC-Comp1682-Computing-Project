@@ -4,6 +4,7 @@ import chatSlice from "./chatSlice";
 import messagesSlice from "./messagesSlice";
 import userSlice from "./userSlice";
 
+
 export const store = configureStore({
     reducer: {
         auth: authSlice,

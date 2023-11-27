@@ -3,7 +3,6 @@ import { getFirebaseApp } from "../firebaseHelper";
 import { getUserPushTokens } from "./authActions";
 import { addUserChat, deleteUserChat, getUserChats } from "./userActions";
 
-
 export const createChat = async (loggedInUserId, chatData) => {
 
     const newChatData = {
@@ -13,9 +12,6 @@ export const createChat = async (loggedInUserId, chatData) => {
         createdAt: new Date().toISOString(),
         updatedAt: new Date().toISOString()
     };
-    console.log("chatData before createChat", chatData)
-    console.log("chatName value:", chatData.chatName);
-    console.log("newChatData", newChatData);
 
     const app = getFirebaseApp();
     const dbRef = ref(getDatabase(app));

@@ -53,6 +53,7 @@ export const addUserChat = async (userId, chatId) => {
     }
 }
 
+
 export const searchUsers = async (queryText) => {
     const searchTerm = queryText.toLowerCase();
 

@@ -9,10 +9,11 @@ export const getFirebaseApp = () => {
   const firebaseConfig = {
     apiKey: "AIzaSyAL8Um62wcokGOa2-9E5KMvoeqV47N5zgI",
     authDomain: "vte-chat-app.firebaseapp.com",
+    databaseURL: "https://vte-chat-app-default-rtdb.firebaseio.com",
     projectId: "vte-chat-app",
     storageBucket: "vte-chat-app.appspot.com",
     messagingSenderId: "789404314313",
-    appId: "1:789404314313:web:ccb2c83da23c5c6d743b18",
+    appId: "1:789404314313:web:ccb2c83da23c5c6d743b18"
   };
 
   // Initialize Firebase

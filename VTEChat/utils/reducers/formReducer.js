@@ -25,4 +25,5 @@ export const reducer = (state, action) => {
         inputValidities: updatedValidities,
         formIsValid: updatedFormIsValid
     };
+    
 }

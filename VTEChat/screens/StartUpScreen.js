@@ -40,5 +40,4 @@ const StartUpScreen = () => {
         <ActivityIndicator size="large" color={colors.primary} />
     </View>
 }
-
 export default StartUpScreen;

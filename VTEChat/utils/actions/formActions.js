@@ -1,5 +1,6 @@
 import { validateEmail, validateLength, validatePassword, validateString } from '../validationConstraints';
 
+
 export const validateInput = (inputId, inputValue) => {
     if (inputId === "firstName" || inputId === "lastName") {
         return validateString(inputId, inputValue)

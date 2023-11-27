@@ -1,5 +1,5 @@
-// import * as Device from 'expo-device';
-// import * as Notifications from 'expo-notifications';
+import * as Device from 'expo-device';
+import * as Notifications from 'expo-notifications';
 import React, { useEffect, useRef, useState } from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
@@ -120,36 +120,36 @@ const MainNavigator = (props) => {
   const userData = useSelector(state => state.auth.userData);
   const storedUsers = useSelector(state => state.users.storedUsers);
 
-  // const [expoPushToken, setExpoPushToken] = useState('');
-  //console.log(expoPushToken)
-  // const notificationListener = useRef();
-  // const responseListener = useRef();
+   const [expoPushToken, setExpoPushToken] = useState('');
+  console.log(expoPushToken)
+   const notificationListener = useRef();
+    const responseListener = useRef();
 
-  // useEffect(() => {
-  //   // registerForPushNotificationsAsync().then(token => setExpoPushToken(token));
+   useEffect(() => {
+      registerForPushNotificationsAsync().then(token => setExpoPushToken(token));
 
-  //   // notificationListener.current = Notifications.addNotificationReceivedListener(notification => {
-  //   //   // Handle received notification
-  //   // });
+   notificationListener.current = Notifications.addNotificationReceivedListener(notification => {
+       // Handle received notification
+    });
 
-  //   responseListener.current = Notifications.addNotificationResponseReceivedListener(response => {
-  //     const { data } = response.notification.request.content;
-  //     const chatId = data["chatId"];
+   responseListener.current = Notifications.addNotificationResponseReceivedListener(response => {
+     const { data } = response.notification.request.content;
+     const chatId = data["chatId"];
 
-  //     if (chatId) {
-  //       const pushAction = StackActions.push("ChatScreen", { chatId });
-  //       navigation.dispatch(pushAction);
-  //     }
-  //     else {
-  //       console.log("No chat id sent with notification");
-  //     }
-  //   });
+     if (chatId) {
+        const pushAction = StackActions.push("ChatScreen", { chatId });
+        navigation.dispatch(pushAction);
+       }
+       else {
+         console.log("No chat id sent with notification");
+       }
+     });
 
-  //   return () => {
-  //     Notifications.removeNotificationSubscription(notificationListener.current);
-  //     Notifications.removeNotificationSubscription(responseListener.current);
-  //   };
-  // }, []);
+     return () => {
+     Notifications.removeNotificationSubscription(notificationListener.current);
+       Notifications.removeNotificationSubscription(responseListener.current);
+     };
+   }, []);
 
   useEffect(() => {
     console.log("Subscribing to firebase listeners");
@@ -253,36 +253,33 @@ const MainNavigator = (props) => {
 
 export default MainNavigator;
 
-// async function registerForPushNotificationsAsync() {
-//   let token;
+ async function registerForPushNotificationsAsync() {
+   let token;
+   if (Platform.OS === 'android') {
+     await Notifications.setNotificationChannelAsync('default', {
+       name: 'default',
+       importance: Notifications.AndroidImportance.MAX,
+       vibrationPattern: [0, 250, 250, 250],
+       lightColor: '#FF231F7C',
+     });
+   }
 
-//   if (Platform.OS === 'android') {
-//     await Notifications.setNotificationChannelAsync('default', {
-//       name: 'default',
-//       importance: Notifications.AndroidImportance.MAX,
-//       vibrationPattern: [0, 250, 250, 250],
-//       lightColor: '#FF231F7C',
-//     });
-//   }
+   if (Device.isDevice) {     const { status: existingStatus } = await Notifications.getPermissionsAsync();
+     let finalStatus = existingStatus;
+     if (existingStatus !== 'granted') {
+       const { status } = await Notifications.requestPermissionsAsync();
+      finalStatus = status;
+     }
+     if (finalStatus !== 'granted') {
+       alert('Failed to get push token for push notification!');       return;
+     }
+     // Learn more about projectId:
+     // https://docs.expo.dev/push-notifications/push-notifications-setup/#configure-projectid
+     token = (await Notifications.getExpoPushTokenAsync({ projectId: '6e0a05e2-dfa7-45f8-a8fe-62025bf6592e' })).data;
+     console.log(token);
+   } else {
+     alert('Must use physical device for Push Notifications');
+   }
 
-//   if (Device.isDevice) {
-//     const { status: existingStatus } = await Notifications.getPermissionsAsync();
-//     let finalStatus = existingStatus;
-//     if (existingStatus !== 'granted') {
-//       const { status } = await Notifications.requestPermissionsAsync();
-//       finalStatus = status;
-//     }
-//     if (finalStatus !== 'granted') {
-//       alert('Failed to get push token for push notification!');
-//       return;
-//     }
-//     // Learn more about projectId:
-//     // https://docs.expo.dev/push-notifications/push-notifications-setup/#configure-projectid
-//     token = (await Notifications.getExpoPushTokenAsync({ projectId: '6e0a05e2-dfa7-45f8-a8fe-62025bf6592e' })).data;
-//     console.log(token);
-//   } else {
-//     alert('Must use physical device for Push Notifications');
-//   }
-
-//   return token;
-// }
+   return token;
+ }

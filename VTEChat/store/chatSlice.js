@@ -11,5 +11,6 @@ const chatSlice = createSlice({
         }
     }
 });
+
 export const setChatsData = chatSlice.actions.setChatsData;
 export default chatSlice.reducer;
