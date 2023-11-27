@@ -58,7 +58,7 @@ export const updateChatData = async (chatId, userId, chatData) => {
 
 const sendMessage = async (chatId, senderId, messageText, imageUrl, replyTo, type) => {
     const app = getFirebaseApp();
-    const dbRef = ref(getDatabase());
+    const dbRef = ref(getDatabase(app));
     const messagesRef = child(dbRef, `messages/${chatId}`);
 
     const messageData = {
