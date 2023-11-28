@@ -22,7 +22,12 @@ STUDENT NAME: USANA ARDYCE ZULU
 ### Usernames and Passwords for the app
 
 Username: usanazulu@email.com <br />
-Password: password
+Password: 12345678
+
+<br />
+
+Username: donjoe@email.com <br />
+Password: 12345678
 
 ### Prerequisites
 
